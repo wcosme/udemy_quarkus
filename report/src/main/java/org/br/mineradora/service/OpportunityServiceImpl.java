@@ -77,6 +77,4 @@ public class OpportunityServiceImpl implements OpportunityService {
         return opportunities;
 
     }
-
-
 }
