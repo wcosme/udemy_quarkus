@@ -4,7 +4,6 @@ import io.quarkus.security.Authenticated;
 import org.br.mineradora.dto.OpportunityDTO;
 import org.br.mineradora.service.OpportunityService;
 
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

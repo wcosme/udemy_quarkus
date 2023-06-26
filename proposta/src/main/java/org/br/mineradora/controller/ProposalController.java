@@ -3,6 +3,7 @@ package org.br.mineradora.controller;
 import io.quarkus.security.Authenticated;
 import org.br.mineradora.dto.ProposalDetailsDTO;
 import org.br.mineradora.service.ProposalService;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,10 +20,14 @@ public class ProposalController {
     private final Logger LOG = LoggerFactory.getLogger(ProposalController.class);
 
     @Inject
+    JsonWebToken jsonWebToken;
+
+    @Inject
     ProposalService proposalService;
 
     @GET
     @Path("/{id}")
+    @RolesAllowed({"user","manager"})
     public ProposalDetailsDTO findDetailsProposal(@PathParam("id") long id){
         return proposalService.findFullProposal(id);
     }
